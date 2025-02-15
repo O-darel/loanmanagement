@@ -30,14 +30,38 @@ public class Loan {
     private User user;
 
     @Column(nullable = false)
-    private  double amount;
+    private  double principalAmount;
+
+    @Column(nullable = false)
+    private double interestRate;
+
+    @Column(nullable = false)
+    private double loanPeriod;
+
+    @Column(nullable = false)
+    private double repaymentFrequency;
+
+    @Column(nullable = true)
+    private Double monthlyRepayment;
+
+    @Column(nullable = false)
+    private double balance = 0;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private LoanStatus status=LoanStatus.PENDING; //Default value
 
-    @Column(nullable = false)
-    private LocalDate issueDate;
+    @Column()
+    private LocalDate approvedDate;
+
+    @Column()
+    private LocalDate disbursedDate;
+
+    @Column()
+    private LocalDate dueDate;
+
+    @Column()
+    private LocalDate paidDate;
 
     @CreationTimestamp
     @Column(updatable = false, name = "created_at")
@@ -50,7 +74,7 @@ public class Loan {
 
     //set specific loan status
     public enum LoanStatus{
-        PENDING, APPROVED, REJECTED, PAID
+        PENDING, APPROVED, REJECTED,DISBURSED, PAID
     }
 
 

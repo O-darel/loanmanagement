@@ -11,8 +11,12 @@ import java.time.LocalDate;
 @Setter
 public class AddLoanDto {
     //private Integer userId;
-    private double amount;
+    private double principalAmount;
+    private double interestRate;
+    private double loanPeriod;
+    private double repaymentFrequency;
     //private Loan.LoanStatus status; //optional
-    private LocalDate issueDate;
+    //private LocalDate applicationDate;
+
 
 }
